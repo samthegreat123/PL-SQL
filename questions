@@ -1,0 +1,36 @@
+1) Write a PL/SQL block that explains the use of the 
+ZERO_DIVIDE exception. 
+2) Write a PL/SQL block to accept a student name 
+from a user if it exists, display his/her result from the 
+RESULT table otherwise display appropriate message 
+using exception handling. 
+3) Write a PL/SQL block to accept employee name 
+from a user if it exists, display his/her basic salary 
+otherwise display appropriate message using 
+exception handling. 
+4) Write a PL/SQL block to display the salary of that 
+employee whose age is 50 years otherwise display 
+appropriate messages using exception handling. 
+5) Write a PL/SQL block using a cursor to insert the 
+records of employees in the EMP_BACKUP table for a 
+given department number, also raise a user defined 
+exception NO_DEPT_FOUND when no records are 
+found for entered DEPT_NO. (Use User Defined 
+Exception) 
+6) Write a program that explains the use of the 
+NO_DATA_FOUND exception. 
+7) Write a program that explains the use of the 
+INVALID_NUMBER exception. 
+8) Write a program that explains the use of the 
+ZERO_DIVIDE exception. 
+9) Write a program using implicit cursor to display the 
+commission of given EMPNO, also raise a user-defined 
+exception NULL _COMMISSION when no value (NULL) 
+is available for commission.  
+(Use User Defined Exception) 
+10) Write  a  program that  explains  the  use of  
+exception  trapping  functions SQLCODE and 
+SQLERRM. 
+ 
+FACULTY OF COMPUTER APPLICATIONS 
+Bachel
