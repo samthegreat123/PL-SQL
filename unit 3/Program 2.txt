@@ -1,0 +1,21 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+    V_NAME  RESULT.STUDENT_NAME%TYPE := '&student_name';
+    V_MARKS RESULT.MARKS%TYPE;
+BEGIN
+    SELECT MARKS
+    INTO V_MARKS
+    FROM RESULT
+    WHERE UPPER(STUDENT_NAME) = UPPER(V_NAME);
+
+    DBMS_OUTPUT.PUT_LINE('Student Name : ' || V_NAME);
+    DBMS_OUTPUT.PUT_LINE('Result/Marks : ' || V_MARKS);
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('Student does not exist.');
+    WHEN TOO_MANY_ROWS THEN
+        DBMS_OUTPUT.PUT_LINE('More than one student found.');
+END;
+/

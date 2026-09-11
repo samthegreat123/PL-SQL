@@ -1,0 +1,38 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+    V_EMPNO EMP.EMPNO%TYPE := &emp_no;
+    V_COMM  EMP.COMM%TYPE;
+
+    NULL_COMMISSION EXCEPTION;
+
+BEGIN
+    SELECT COMM
+    INTO V_COMM
+    FROM EMP
+    WHERE EMPNO = V_EMPNO;
+
+    IF V_COMM IS NULL THEN
+        RAISE NULL_COMMISSION;
+    END IF;
+
+    DBMS_OUTPUT.PUT_LINE(
+        'Commission of employee ' || V_EMPNO || ' = ' || V_COMM
+    );
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE(
+            'Employee with EMPNO ' || V_EMPNO || ' does not exist.'
+        );
+
+    WHEN NULL_COMMISSION THEN
+        DBMS_OUTPUT.PUT_LINE(
+            'Commission is NULL for employee ' || V_EMPNO
+        );
+
+    WHEN TOO_MANY_ROWS THEN
+        DBMS_OUTPUT.PUT_LINE('More than one employee found.');
+
+END;
+/

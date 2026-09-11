@@ -1,0 +1,19 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+    V_NAME EMP.ENAME%TYPE;
+BEGIN
+    SELECT ENAME
+    INTO V_NAME
+    FROM EMP
+    WHERE EMPNO = 9999;
+
+    DBMS_OUTPUT.PUT_LINE('Employee Name: ' || V_NAME);
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE(
+            'NO_DATA_FOUND: No employee exists with EMPNO 9999.'
+        );
+END;
+/

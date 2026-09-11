@@ -1,0 +1,21 @@
+SET SERVEROUTPUT ON;
+
+DECLARE
+    V_NAME EMP.ENAME%TYPE := '&employee_name';
+    V_SAL  EMP.SAL%TYPE;
+BEGIN
+    SELECT SAL
+    INTO V_SAL
+    FROM EMP
+    WHERE UPPER(ENAME) = UPPER(V_NAME);
+
+    DBMS_OUTPUT.PUT_LINE('Employee Name : ' || V_NAME);
+    DBMS_OUTPUT.PUT_LINE('Basic Salary  : ' || V_SAL);
+
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('Employee does not exist.');
+    WHEN TOO_MANY_ROWS THEN
+        DBMS_OUTPUT.PUT_LINE('Multiple employees found with this name.');
+END;
+/
