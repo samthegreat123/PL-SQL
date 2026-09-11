@@ -1,0 +1,13 @@
+DECLARE
+    num NUMBER := 5;   -- Change this to any number
+    square NUMBER;
+    cube NUMBER;
+BEGIN
+    square := num * num;
+    cube := num * num * num;
+
+    DBMS_OUTPUT.PUT_LINE('Number = ' || num);
+    DBMS_OUTPUT.PUT_LINE('Square = ' || square);
+    DBMS_OUTPUT.PUT_LINE('Cube = ' || cube);
+END;
+/

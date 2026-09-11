@@ -1,0 +1,19 @@
+---6) Write a program to generate the numbers using 
+LOOP, FOR LOOP and WHILE LOOP up to the number 
+inputted by the user. 
+
+SET SERVEROUTPUT ON;
+
+DECLARE
+    n NUMBER;
+    i NUMBER := 1;
+BEGIN
+    n := &Enter_Number;
+
+    LOOP
+        EXIT WHEN i > n;
+        DBMS_OUTPUT.PUT_LINE(i);
+        i := i + 1;
+    END LOOP;
+END;
+/
