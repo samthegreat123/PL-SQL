@@ -1,0 +1,27 @@
+--4) Write a function that returns the square of the 
+given number. Execute the function using a separate 
+PL/SQL block and on the command line. 
+5) Write a function that returns the balance for a 
+given account number. (Create ACCOUNT table with 
+ACNO, CNAME, BNAME, BALANCE columns using 
+appropriate data types) ----
+
+-- Create the Function
+CREATE OR REPLACE FUNCTION get_square(p_num IN NUMBER) 
+RETURN NUMBER AS
+BEGIN
+    RETURN p_num * p_num;
+END;
+/
+
+-- Execute using a PL/SQL Block
+DECLARE
+    v_result NUMBER;
+BEGIN
+    v_result := get_square(6);
+    DBMS_OUTPUT.PUT_LINE('The square is: ' || v_result);
+END;
+/
+
+-- Execute on the Command Line without a PL/SQL block
+SELECT get_square(8) AS square_value FROM DUAL;

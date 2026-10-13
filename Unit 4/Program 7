@@ -1,0 +1,26 @@
+--7) Write a simple procedure that increases the salary 
+of employees for the given department not by 
+percentage inputted by the user using the IN 
+parameter.--
+
+-- Create the Procedure
+CREATE OR REPLACE PROCEDURE update_dept_salary_flat(
+    p_deptno IN NUMBER,
+    p_amount IN NUMBER
+) AS
+BEGIN
+    UPDATE emp
+    SET sal = sal + p_amount
+    WHERE deptno = p_deptno;
+    
+    COMMIT;
+    DBMS_OUTPUT.PUT_LINE('Salary increased by $' || p_amount || ' for Department: ' || p_deptno);
+END;
+/
+
+-- Call using a PL/SQL Block
+SET SERVEROUTPUT ON;
+BEGIN
+    update_dept_salary_flat(p_deptno => 20, p_amount => 500);
+END;
+/

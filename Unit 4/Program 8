@@ -1,0 +1,39 @@
+--8) Write a procedure that search‟s whether the given 
+employee number is present or not in the table. (Use 
+both IN and OUT mode variables) and also Write a 
+PL/SQL block to call the SEARCH_EMP procedure.---
+
+-- Create the Procedure
+CREATE OR REPLACE PROCEDURE search_emp(
+    p_empno IN NUMBER,
+    p_status OUT VARCHAR2
+) AS
+    v_count NUMBER;
+BEGIN
+    SELECT COUNT(*) 
+    INTO v_count
+    FROM emp
+    WHERE empno = p_empno;
+    
+    IF v_count >  0 THEN
+        p_status := 'PRESENT';
+    ELSE
+        p_status := 'ABSENT';
+    END IF;
+END;
+/
+
+-- PL/SQL Block to Call the SEARCH_EMP Procedure
+DECLARE
+    v_empno  NUMBER := 7499; -- Example employee number
+    v_status VARCHAR2(20);
+BEGIN
+    search_emp(v_empno, v_status);
+    
+    IF v_status = 'PRESENT' THEN
+        DBMS_OUTPUT.PUT_LINE('Employee ID ' || v_empno || ' is PRESENT in the table.');
+    ELSE
+        DBMS_OUTPUT.PUT_LINE('Employee ID ' || v_empno || ' is ABSENT from the table.');
+    END IF;
+END;
+/

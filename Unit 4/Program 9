@@ -1,0 +1,24 @@
+--9) Write a function that returns the square of the 
+given number. Execute this function using a separate 
+PL/SQL block and also without using PL/SQL block on 
+the command line.---
+
+-- Create the Function
+CREATE OR REPLACE FUNCTION get_square(p_num IN NUMBER) 
+RETURN NUMBER AS
+BEGIN
+    RETURN p_num * p_num;
+END;
+/
+
+-- 1. Execute using a separate PL/SQL Block
+DECLARE
+    v_result NUMBER;
+BEGIN
+    v_result := get_square(5);
+    DBMS_OUTPUT.PUT_LINE('The square is: ' || v_result);
+END;
+/
+
+-- 2. Execute without using a PL/SQL block on the command line
+SELECT get_square(12) AS square_result FROM DUAL;

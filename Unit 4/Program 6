@@ -1,0 +1,17 @@
+--6) Write a simple procedure without any parameter 
+that updates the values in the EMP table. ---
+
+-- Create the Procedure
+CREATE OR REPLACE PROCEDURE update_emp_table AS
+BEGIN
+    UPDATE emp
+    SET comm = 100
+    WHERE comm IS NULL;
+    
+    COMMIT;
+    DBMS_OUTPUT.PUT_LINE('EMP table updated successfully.');
+END;
+/
+
+-- Execution
+EXEC update_emp_table;
